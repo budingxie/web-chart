@@ -29,7 +29,7 @@ target/
 /nbdist/
 /.nb-gradle/
 build/
-
+.mvn/
 ### VS Code ###
 .vscode/
 

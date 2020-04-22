@@ -1,0 +1,10 @@
+#/bin/bash
+set -xe
+
+mvn -Dmaven.test.skip=true clean package
+
+mkdir release
+
+cp ./web-chart/target/web-chart-0.0.1-SNAPSHOT.jar release/
+
+cp -r release /home/work/

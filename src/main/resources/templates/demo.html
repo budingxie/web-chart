@@ -7,74 +7,94 @@
     <script src="js/jquery-3.4.1.js"></script>
 </head>
 <body>
-<!-- 为 ECharts 准备一个具备大小（宽高）的 DOM -->
-<div id="main" style="width: 600px;height:400px;"></div>
+<!-- 为 ECharts 准备一个具备大小（宽高）的 DOM
+// data: [3.22, 3.23, 3.24, 3.25, 3.26, 3.27]
+// data: ["2018-08-10", "2018-08-11", "2018-08-12", "2018-08-11", "2018-08-11", "2018-08-11"],
+-->
+<div id="main" style="width: 800px;height:400px;"></div>
 
-<input type="hidden" th:value="${skirt.num}" id="num"/>
-<input type="hidden" th:value="${nums}" id="nums"/>
 
-
-<script type="text/javascript">
+<script type="text/javascript" th:inline="javascript">
     // 基于准备好的dom，初始化echarts实例
     var myChart = echarts.init(document.getElementById('main'));
 
-    var skirt = $("#num").val();
-    var nums = $("#nums").val();
+    //数据
+    var xValue = [[${xData}]];
+    var yValue0 = [[${yData.get(0)}]];
+    var yValue1 = [[${yData.get(1)}]];
+    var yValue2 = [[${yData.get(2)}]];
+    var yValue3 = [[${yData.get(3)}]];
+    var yValue4 = [[${yData.get(4)}]];
+    var yValue5 = [[${yData.get(5)}]];
+    var yValue6 = [[${yData.get(6)}]];
+    var yValue7 = [[${yData.get(7)}]];
 
     // 指定图表的配置项和数据
     var option = {
+
         title: {
             text: '风沙因子变化趋势图'
         },
         tooltip: {},
         legend: {
-            data: ['温度', '湿度', '光照强度', 'CO2浓度', 'PM 2.5', 'PM 10', '风向', '风速'],
-            orient: 'vertical',  //垂直显示
-            y: 'center',    //延Y轴居中
-            x: 'right' //居右显示
+            data: ['温度', '湿度', ' 光照强度', 'CO2浓度', 'PM 2.5', 'PM 10', '风向', '风速'],
+            //垂直显示
+            orient: 'vertical',
+            //延Y轴居中
+            y: 'center',
+            //居右显示
+            x: 'right'
         },
         xAxis: {
             type: 'category',
-            boundaryGap: true,
-            // data: [skirt, "羊毛衫", "雪纺衫", "裤子", "高跟鞋", "袜子"]
-            // data: [3.22, 3.23, 3.24, 3.25, 3.26, 3.27]
-            data: [skirt, 3.23, 3.24, 3.25, 3.26, 3.27]
+            boundaryGap: false,
+            data: xValue
         },
-        yAxis: {},
+        yAxis: {
+            type: 'value'
+        },
         series: [
             {
                 name: '温度',
                 type: 'line',
-                data: [80, 20, 36, 10, 10, 20]
-            }, {
+                data: yValue0
+            },
+            {
                 name: '湿度',
                 type: 'line',
-                data: [100, 30, 36, 43, 81, 40]
-            }, {
+                data: yValue1
+            },
+            {
                 name: '光照强度',
                 type: 'line',
-                data: [50, 30, 36, 34, 80, 67]
-            }, {
+                data: yValue2
+            },
+            {
                 name: 'CO2浓度',
                 type: 'line',
-                data: [nums, 31, 36, 40, 87, 60]
-            }, {
+                data: yValue3
+            },
+            {
                 name: 'PM 2.5',
                 type: 'line',
-                data: [nums, 30, 36, 40, 94, 63]
-            }, {
+                data: yValue4
+            },
+            {
                 name: 'PM 10',
                 type: 'line',
-                data: [nums, 30, 36, 65, 83, 55]
-            }, {
+                data: yValue5
+            },
+            {
                 name: '风向',
                 type: 'line',
-                data: [nums, 30, 23, 12, 80, 61]
-            }, {
+                data: yValue6
+            },
+            {
                 name: '风速',
                 type: 'line',
-                data: [nums, 30, 36, 42, 80, 34]
+                data: yValue7
             }
+
         ]
     };
 

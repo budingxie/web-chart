@@ -82,7 +82,7 @@ public class EcharsAction {
                 xData.add(PyDateUtil.dateStr2formatStr(item.getTime()));
                 String[] yStr = item.getHexPacket().split(" ");
                 for (int j = 0; j < yStr.length; j++) {
-                    yData.get(j).add(Integer.parseInt(yStr[j]));
+                    yData.get(j).add(Integer.parseInt(yStr[j].substring(2), 16));
                 }
             } catch (Exception e) {
                 System.err.println("error===============" + e.getMessage());

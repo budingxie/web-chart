@@ -27,7 +27,6 @@ public class PyJsonUtils {
         Type type = new TypeToken<ArrayList<JsonObject>>() {
         }.getType();
         JsonObject bodyObj = gson.fromJson(body, JsonObject.class);
-        JsonObject data = bodyObj.getAsJsonObject("data");
         JsonArray items = bodyObj.getAsJsonObject("data").getAsJsonArray("items");
         List<JsonObject> jsonObjects = gson.fromJson(items, type);
         List<Item> itemList = new ArrayList<>();

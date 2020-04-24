@@ -34,24 +34,3 @@ build/
 .vscode/
 
 derby.log
-将删除 .gitignore
-将删除 pom.xml
-将删除 spm-system-api/api.iml
-将删除 spm-system-api/pom.xml
-将删除 spm-system-api/spm-system-api.iml
-将删除 spm-system-api/src/main/resources/
-将删除 spm-system-api/src/test/
-将删除 spm-system-api/target/
-将删除 spm-system-consumer/.gitignore
-将删除 spm-system-consumer/.mvn/
-将删除 spm-system-consumer/mvnw
-将删除 spm-system-consumer/mvnw.cmd
-将删除 spm-system-consumer/pom.xml
-将删除 spm-system-consumer/src/
-将删除 spm-system-provider/.gitignore
-将删除 spm-system-provider/.mvn/
-将删除 spm-system-provider/mvnw
-将删除 spm-system-provider/mvnw.cmd
-将删除 spm-system-provider/pom.xml
-将删除 spm-system-provider/src/
-将删除 spm-system.iml

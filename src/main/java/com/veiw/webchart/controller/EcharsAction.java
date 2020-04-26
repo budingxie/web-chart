@@ -35,7 +35,7 @@ public class EcharsAction {
         // ?page=1&limit=50&start=2020-04-24 02:12:35&end=2020-04-24 03:12:35
         String page = "1";
         String limit = "50";
-        String deviceId = "59417250541070249333";
+        String deviceId = "86815329394800060107";
         String startTime = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(new Date(System.currentTimeMillis()));
         String endTime = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(new Date(System.currentTimeMillis()));
         String requestUrl = dataUrl + deviceId + "?" + "page={page}&limit={limit}&start={startTime}&end={endTime}";
@@ -70,7 +70,6 @@ public class EcharsAction {
                 xData.add(PyDateUtil.dateStr2formatStr(item.getTime()));
                 String[] yStr = item.getHexPacket().split(" ");
                 for (int j = 0; j < yStr.length; j++) {
-//                    yData.get(j).add(Integer.parseInt(yStr[j].substring(2), 16));
                     yData.get(j).add(Integer.parseInt(yStr[j], 16));
                 }
             } catch (Exception e) {

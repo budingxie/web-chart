@@ -62,13 +62,13 @@ public class EcharsAction {
         //定义坐标
         List<String> xData = new ArrayList<String>();
         List<List<Integer>> yData = new ArrayList<List<Integer>>();
-        for (int i = 0; i < 8; i++) {
+        for (int i = 0; i < itemList.get(0).getHexPacket().split(" ").length; i++) {
             yData.add(new ArrayList<Integer>());
         }
-        for (Item item : itemList) {
+        for (int k = itemList.size() - 1; k >= 0; k++) {
             try {
-                xData.add(PyDateUtil.dateStr2formatStr(item.getTime()));
-                String[] yStr = item.getHexPacket().split(" ");
+                xData.add(PyDateUtil.dateStr2formatStr(itemList.get(k).getTime()));
+                String[] yStr = itemList.get(k).getHexPacket().split(" ");
                 for (int j = 0; j < yStr.length; j++) {
                     yData.get(j).add(Integer.parseInt(yStr[j], 16));
                 }

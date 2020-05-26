@@ -31,14 +31,15 @@ public class EcharsAction {
 
     @RequestMapping("/demo")
     public String myDemo(Model model) {
-        //完整地址https://cloud.alientek.com/api/orgs/2086/devicepacket/59417250541070249333
+        //完整地址https://cloud.alientek.com/api/orgs/2086/devicepacket/75393825511621004978
         // ?page=1&limit=50&start=2020-04-24 02:12:35&end=2020-04-24 03:12:35
         String page = "1";
         String limit = "50";
-        String deviceId = "86815329394800060107";
+        String deviceId = "75393825511621004978";
         String startTime = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(new Date(System.currentTimeMillis()));
         String endTime = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(new Date(System.currentTimeMillis()));
-        String requestUrl = dataUrl + deviceId + "?" + "page={page}&limit={limit}&start={startTime}&end={endTime}";
+//        String requestUrl = dataUrl + deviceId + "?" + "page={page}&limit={limit}&start={startTime}&end={endTime}";
+        String requestUrl = dataUrl + deviceId;
 
         //headers
         HttpHeaders requestHeaders = new HttpHeaders();
@@ -56,7 +57,7 @@ public class EcharsAction {
         //获取返回信息
         String body = entity.getBody();
         // {"code": 200,"data": {"current_page": 1,"items": [{"hex_packet": "45 41 66 34 23 89 80 100","length": 14,"time": "2018-08-11T17:03:39.300928+08:00"},{"hex_packet": "78 41 55 88 90 43 34 23","length": 14,"time": "2018-08-11T17:02:39.401668+08:00"},{"hex_packet": "100 64 73 33 56 99 77 44","length": 22,"time": "2018-08-11T17:02:24.560741+08:00"}],"page_limit": 30,"total_item": 10,"total_page": 1},"message": "ccccc"}
-        body = "{\"code\": 200,\"data\": {\"current_page\": 1,\"items\": [{\"hex_packet\": \"45 41 66 34 23 89 80 100\",\"length\": 14,\"time\": \"2018-08-11T17:03:39.300928+08:00\"},{\"hex_packet\": \"78 41 55 88 90 43 34 23\",\"length\": 14,\"time\": \"2018-08-11T17:02:39.401668+08:00\"},{\"hex_packet\": \"100 64 73 33 56 99 77 44\",\"length\": 22,\"time\": \"2018-08-11T17:02:24.560741+08:00\"}],\"page_limit\": 30,\"total_item\": 10,\"total_page\": 1},\"message\": \"ccccc\"}";
+        //body = "{\"code\": 200,\"data\": {\"current_page\": 1,\"items\": [{\"hex_packet\": \"45 41 66 34 23 89 80 100\",\"length\": 14,\"time\": \"2018-08-11T17:03:39.300928+08:00\"},{\"hex_packet\": \"78 41 55 88 90 43 34 23\",\"length\": 14,\"time\": \"2018-08-11T17:02:39.401668+08:00\"},{\"hex_packet\": \"100 64 73 33 56 99 77 44\",\"length\": 22,\"time\": \"2018-08-11T17:02:24.560741+08:00\"}],\"page_limit\": 30,\"total_item\": 10,\"total_page\": 1},\"message\": \"ccccc\"}";
 
         List<Item> itemList = PyJsonUtils.bodyToList(body);
         //定义坐标
@@ -65,7 +66,7 @@ public class EcharsAction {
         for (int i = 0; i < itemList.get(0).getHexPacket().split(" ").length; i++) {
             yData.add(new ArrayList<Integer>());
         }
-        for (int k = itemList.size() - 1; k >= 0; k++) {
+        for (int k = itemList.size() - 1; k >= 0; k--) {
             try {
                 xData.add(PyDateUtil.dateStr2formatStr(itemList.get(k).getTime()));
                 String[] yStr = itemList.get(k).getHexPacket().split(" ");

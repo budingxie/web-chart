@@ -23,44 +23,50 @@
         </tr>
         <tr>
             <td>温度</td>
-            <td th:each="y1:${yData[0]}">
-                <p style="width: 100px" th:text="${y1}"></p>
+            <td th:each="y:${yData[0]}">
+                <p style="width: 100px" th:text="${y}"></p>
+            </td>
+        </tr>
+        <tr>
+            <td>温度</td>
+            <td th:each="y:${yData[1]}">
+                <p style="width: 100px" th:text="${y}"></p>
             </td>
         </tr>
         <tr>
             <td>光照强度</td>
-            <td th:each="y1:${yData[1]}">
-                <p style="width: 100px" th:text="${y1}"></p>
+            <td th:each="y:${yData[2]}">
+                <p style="width: 100px" th:text="${y}"></p>
             </td>
         </tr>
         <tr>
             <td>CO2浓度</td>
-            <td th:each="y1:${yData[2]}">
-                <p style="width: 100px" th:text="${y1}"></p>
+            <td th:each="y:${yData[3]}">
+                <p style="width: 100px" th:text="${y}"></p>
             </td>
         </tr>
         <tr>
             <td>PM 2.5</td>
-            <td th:each="y1:${yData[3]}">
-                <p style="width: 100px" th:text="${y1}"></p>
+            <td th:each="y:${yData[4]}">
+                <p style="width: 100px" th:text="${y}"></p>
             </td>
         </tr>
         <tr>
             <td>PM 10</td>
-            <td th:each="y1:${yData[4]}">
-                <p style="width: 100px" th:text="${y1}"></p>
+            <td th:each="y:${yData[5]}">
+                <p style="width: 100px" th:text="${y}"></p>
             </td>
         </tr>
         <tr>
             <td>风向</td>
-            <td th:each="y1:${yData[5]}">
-                <p style="width: 100px" th:text="${y1}"></p>
+            <td th:each="y:${yData[6]}">
+                <p style="width: 100px" th:text="${y}"></p>
             </td>
         </tr>
         <tr>
             <td>风速</td>
-            <td th:each="y1:${yData[6]}">
-                <p style="width: 100px" th:text="${y1}"></p>
+            <td th:each="y:${yData[7]}">
+                <p style="width: 100px" th:text="${y}"></p>
             </td>
         </tr>
 
@@ -91,7 +97,7 @@
         },
         tooltip: {},
         legend: {
-            data: ['温度', '湿度', ' 光照强度', 'CO2浓度', 'PM 2.5', 'PM 10', '风向', '风速'],
+            data: ['温度', '湿度', '光照强度', 'CO2浓度', 'PM 2.5', 'PM 10', '风向', '风速'],
             //垂直显示
             orient: 'vertical',
             //延Y轴居中

@@ -12,7 +12,61 @@
 // data: ["2018-08-10", "2018-08-11", "2018-08-12", "2018-08-11", "2018-08-11", "2018-08-11"],
 -->
 <div id="main" style="width: 800px;height:400px;"></div>
+<div id="tableData" style="width: 100%;height:400px;">
+    <H1>风沙因子变化趋势表格</H1>
+    <table border="1">
+        <tr>
+            <td>时间</td>
+            <td th:each="xValue:${xData}">
+                <p style="width: 100px" th:text="${xValue}"></p>
+            </td>
+        </tr>
+        <tr>
+            <td>温度</td>
+            <td th:each="y1:${yData[0]}">
+                <p style="width: 100px" th:text="${y1}"></p>
+            </td>
+        </tr>
+        <tr>
+            <td>光照强度</td>
+            <td th:each="y1:${yData[1]}">
+                <p style="width: 100px" th:text="${y1}"></p>
+            </td>
+        </tr>
+        <tr>
+            <td>CO2浓度</td>
+            <td th:each="y1:${yData[2]}">
+                <p style="width: 100px" th:text="${y1}"></p>
+            </td>
+        </tr>
+        <tr>
+            <td>PM 2.5</td>
+            <td th:each="y1:${yData[3]}">
+                <p style="width: 100px" th:text="${y1}"></p>
+            </td>
+        </tr>
+        <tr>
+            <td>PM 10</td>
+            <td th:each="y1:${yData[4]}">
+                <p style="width: 100px" th:text="${y1}"></p>
+            </td>
+        </tr>
+        <tr>
+            <td>风向</td>
+            <td th:each="y1:${yData[5]}">
+                <p style="width: 100px" th:text="${y1}"></p>
+            </td>
+        </tr>
+        <tr>
+            <td>风速</td>
+            <td th:each="y1:${yData[6]}">
+                <p style="width: 100px" th:text="${y1}"></p>
+            </td>
+        </tr>
 
+    </table>
+
+</div>
 
 <script type="text/javascript" th:inline="javascript">
     // 基于准备好的dom，初始化echarts实例
